@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div id="container">
+      <nav>
+        <ul>
+          <li><a href="#0">New Game</a></li>
+          <li>
+            <a href="#0">Difficulty</a>
+            <ul>
+              <li><a href="#0">Easy</a></li>
+              <li><a href="#0">Medium</a></li>
+              <li><a href="#0">Hard</a></li>
+            </ul>
+          </li>
+          <li><a href="#0">Help</a></li>
+        </ul>
+      </nav>
+        
+      <div id="boardAndControls">
+        <table id="sudoku">
+          <tbody id = "board">   
+          </tbody>
+        </table>
+        <div id="controls">
+          <button id="checkValid" class="hoverEffect">Check</button>
+          <p id ="toggleMessage">Assist</p>
+          <label class="switch">
+            
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+      
+
+        
+      
+      <div id="keypad">
+        <button class="keypadButton hoverEffect" id="num1">1</button>
+        <button class="keypadButton hoverEffect" id="num2">2</button>
+        <button class="keypadButton hoverEffect" id="num3">3</button>
+        <button class="keypadButton hoverEffect" id="num4">4</button>
+        <button class="keypadButton hoverEffect" id="num5">5</button>
+        <button class="keypadButton hoverEffect" id="num6">6</button>
+        <button class="keypadButton hoverEffect" id="num7">7</button>
+        <button class="keypadButton hoverEffect" id="num8">8</button>
+        <button class="keypadButton hoverEffect" id="num9">9</button>
+      </div>
+
+      
+    </div>
+    <script src="./scripts/script.js"></script>
+</body>
+</html>
