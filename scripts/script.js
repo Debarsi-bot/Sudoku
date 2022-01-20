@@ -2,6 +2,7 @@ let mode = 9    //cells are 1 based indexed
 let board = document.getElementById('board')
 
 reset = ()=>{
+    //enter all the cells of sudoku into HTML
     let s=""
     for(let i=1;i <= mode*mode;i++){
         s=s+`<td><input type="number"id=${i} /></td>`
