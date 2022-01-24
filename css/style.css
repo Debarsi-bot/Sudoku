@@ -4,6 +4,8 @@
   padding: 0%;
   margin: 0%;
   border: 0%;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Press Start 2P', cursive;
 }
 
 body {
@@ -155,6 +157,7 @@ body {
 
 #container #boardAndControls #sudoku td {
   border: 1px solid lightgrey;
+  background-color: white;
 }
 
 #container #boardAndControls #sudoku td:nth-child(3n-2) {
@@ -169,10 +172,23 @@ body {
   text-align: center;
   border: 0;
   text-align: center;
+  font-size: 2em;
 }
 
-#container #boardAndControls #sudoku input:hover {
-  background: #ffffff;
+#container #boardAndControls #sudoku input.cellHover {
+  background-color: lightblue;
+}
+
+#container #boardAndControls #sudoku input.relatedCells {
+  background-color: #d1edf2;
+}
+
+#container #boardAndControls #sudoku input.wrongCell {
+  background-color: #d8315b;
+}
+
+#container #boardAndControls #sudoku input.correctCell {
+  background-color: #18bc9c;
 }
 
 #container #boardAndControls #controls {

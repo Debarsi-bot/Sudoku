@@ -6,7 +6,7 @@ obj is used as the standad name throught for the sudoku object used
  */
 
 
-let generateSudoku =  (n) => { 
+export default function generateSudoku (n) { 
     const arr = new Array(n)
     for(let i = 0;i < n;i++){
         arr[i] = new Array(n)
@@ -24,7 +24,12 @@ let generateSudoku =  (n) => {
     sudokuObj.puzzle = clone(sudokuObj.array)
     puzzleGenerator(sudokuObj, "Easy")
     print(sudokuObj.puzzle, sudokuObj.n)
+    print(sudokuObj.array,sudokuObj.n)
+    return sudokuObj
+
 }
+
+
 
 //function to clone arrays
 
@@ -121,10 +126,6 @@ function fillOthers (obj,row,col) {
 function getRandom (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
-
-generateSudoku(9)
-
-
 
 /*
 After generating a sudoku board we now clear the cells

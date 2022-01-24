@@ -4,11 +4,17 @@ $color2: #38e2ee;
 $deeper: darken($color1, 5%);
 $lighter: lighten($color2, 10%);
 $primaryText: #ffffff;
+$errorCellColor: #d8315b;
+$correctCellColor: #18bc9c;
+$hoverCellColor: lightblue;
+$hoverRelatedCellsColor : #d1edf2;
 
 * { box-sizing: border-box;
     padding: 0%;
     margin: 0%;
     border: 0%;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Press Start 2P', cursive;
  }
 
 body{
@@ -130,6 +136,7 @@ body{
       }
       td {
           border: 1px solid lightgrey;
+          background-color: white;
       }
       td:nth-child(3n-2) {
           border-left-color: black;
@@ -141,10 +148,20 @@ body{
           text-align: center;
           border: 0;
           text-align: center;
-      }
-      
-      input:hover {
-          background: #ffffff;
+          font-size: 2em;
+          &.cellHover{
+            background-color: $hoverCellColor;
+          }
+          &.relatedCells{ 
+            background-color: $hoverRelatedCellsColor;
+          }
+          &.wrongCell{ //color when cell value is wrong
+            background-color: $errorCellColor;
+          }
+          &.correctCell{  //hover color when cell value is correct
+            background-color: $correctCellColor;
+          }
+  
       }
     }
     #controls{
