@@ -8,57 +8,85 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Press+Start+2P&family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="container">
-      <nav>
-        <ul>
-          <li><a href="#0">New Game</a></li>
-          <li>
-            <a href="#0">Difficulty</a>
-            <ul>
-              <li><a href="#0">Easy</a></li>
-              <li><a href="#0">Medium</a></li>
-              <li><a href="#0">Hard</a></li>
-            </ul>
-          </li>
-          <li><a href="#0">Help</a></li>
-        </ul>
-      </nav>
-        
-      <div id="boardAndControls">
+  <div id = "modal1" class="modal hidden">
+    <div class = "modalContent">
+      <div class = "modalTextContent">
+          <h1>Solved 🎉</h1>
+          <p class = "modal1message" id ="messageTotalMoves"></p>
+          <p class = "modal1message" id ="messageTimeTaken">T</p>
+      </div>
+      <span class="closeButton" id ="modal1Close">&times;</span>
+    </div>
+
+    </div>
+  </div>
+  <div id="container">
+    <nav>
+      <ul>
+        <li id="newGameButton"><a href="#0">New Game</a></li>
+        <li>
+          <a href="#0">Difficulty</a>
+          <ul>
+            <li><a href="#0">Easy</a></li>
+            <li><a href="#0">Medium</a></li>
+            <li><a href="#0">Hard</a></li>
+          </ul>
+        </li>
+        <li><a href="#0">Help</a></li>
+      </ul>
+    </nav>
+      
+    <div id="boardAndControls">
+      <div id = "boardAndKeypad">
         <table id="sudoku">
           <tbody id = "board">   
           </tbody>
         </table>
-        <div id="controls">
-          <button id="checkValid" class="hoverEffect">Check</button>
-          <p id ="toggleMessage">Assist</p>
+        <div id="keypad">
+          <button class="keypadButton hoverEffect" id="num1">1</button>
+          <button class="keypadButton hoverEffect" id="num2">2</button>
+          <button class="keypadButton hoverEffect" id="num3">3</button>
+          <button class="keypadButton hoverEffect" id="num4">4</button>
+          <button class="keypadButton hoverEffect" id="num5">5</button>
+          <button class="keypadButton hoverEffect" id="num6">6</button>
+          <button class="keypadButton hoverEffect" id="num7">7</button>
+          <button class="keypadButton hoverEffect" id="num8">8</button>
+          <button class="keypadButton hoverEffect" id="num9">9</button>
+        </div>
+      </div>
+      
+      <div id="controls">
+        <button id="checkValid" class="hoverEffect">Check</button>
+        <div id = "toggleButtonContainer">
+          <p id ="toggleMessage" class = "uiText">Assist</p>
           <label class="switch">
             
             <input type="checkbox" id ="toggleButton" value="0">
             <span class="slider round"></span>
           </label>
         </div>
-      </div>
-      
 
-        
-      
-      <div id="keypad">
-        <button class="keypadButton hoverEffect" id="num1">1</button>
-        <button class="keypadButton hoverEffect" id="num2">2</button>
-        <button class="keypadButton hoverEffect" id="num3">3</button>
-        <button class="keypadButton hoverEffect" id="num4">4</button>
-        <button class="keypadButton hoverEffect" id="num5">5</button>
-        <button class="keypadButton hoverEffect" id="num6">6</button>
-        <button class="keypadButton hoverEffect" id="num7">7</button>
-        <button class="keypadButton hoverEffect" id="num8">8</button>
-        <button class="keypadButton hoverEffect" id="num9">9</button>
-      </div>
+        <div id="gameInfo">
+          <div id="stopwatch"> 
+            <!-- to be implemented  -->
+          </div>
+          <div id="totalMoves" class="uiText"></div>
+        </div>
 
+      </div>
       
     </div>
-    <script type ="module" src="./scripts/script.js"></script>
+    
+
+      
+    
+    
+
+    
+  </div>
+  <script type ="module" src="./scripts/script.js"></script>
 </body>
 </html>

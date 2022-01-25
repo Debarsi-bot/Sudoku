@@ -160,6 +160,7 @@ function puzzleGenerator (obj, difficulty) {
     switch(difficulty){
         case "Easy":
             k = getRandom(38, 41)
+            k = getRandom(2, 3)
             break
         case "Medium":
             k = getRandom(45, 48)

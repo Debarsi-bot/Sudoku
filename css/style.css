@@ -5,12 +5,71 @@
   margin: 0%;
   border: 0%;
   font-family: 'Poppins', sans-serif;
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
   background: -webkit-gradient(linear, left top, right bottom, from(#5533ff), to(#38e2ee));
   background: linear-gradient(to bottom right, #5533ff, #38e2ee);
+}
+
+.modal {
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Black w/ opacity */
+  font-family: 'Roboto', sans-serif;
+}
+
+.hidden {
+  display: none;
+}
+
+.closeButton {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 2%;
+  font-size: 28px;
+  font-weight: bold;
+  color: #aaaaaa;
+}
+
+.closeButton:hover, .closeButton:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modalContent {
+  position: relative;
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* 15% from the top and centered */
+  padding: 2%;
+  border: 1px solid #888;
+  width: 50%;
+  /* Could be more or less, depending on screen size */
+}
+
+#modal1 {
+  line-height: 1.8;
+}
+
+#modal1 .modal1message {
+  white-space: pre;
 }
 
 #container {
@@ -116,9 +175,14 @@ body {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  margin: auto;
 }
 
-#container .keypadButton {
+#container #keypad :not(:last-child) {
+  margin-right: 1vw;
+}
+
+#container #keypad .keypadButton {
   font-weight: bold;
   border: 2px solid #38e2ee;
   border-radius: 50%;
@@ -126,7 +190,6 @@ body {
   color: white;
   text-align: center;
   cursor: pointer;
-  margin-right: 1vw;
 }
 
 #container .hoverEffect:hover {
@@ -144,7 +207,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 10vh auto;
+  margin: 10vh auto 5vh auto;
 }
 
 #container #boardAndControls #sudoku tr:nth-child(3n-2) td {
@@ -197,6 +260,10 @@ body {
   /* Rounded sliders */
 }
 
+#container #boardAndControls #controls div:nth-child(n) {
+  margin-top: 2vh;
+}
+
 #container #boardAndControls #controls #checkValid {
   background-color: #401aff;
   border: none;
@@ -207,10 +274,9 @@ body {
   cursor: pointer;
 }
 
-#container #boardAndControls #controls #toggleMessage {
+#container #boardAndControls #controls .uiText {
   color: #ffffff;
   font-size: 1.5em;
-  margin-top: 3vh;
 }
 
 #container #boardAndControls #controls .switch {
@@ -218,7 +284,6 @@ body {
   display: inline-block;
   width: 60px;
   height: 34px;
-  margin-top: 1vh;
 }
 
 #container #boardAndControls #controls .switch input {
@@ -271,6 +336,10 @@ body {
 
 #container #boardAndControls #controls .slider.round:before {
   border-radius: 50%;
+}
+
+#container #boardAndControls #controls #gameInfo #totalMoves {
+  width: 10vw;
 }
 
 @-webkit-keyframes slide-in {
