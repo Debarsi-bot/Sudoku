@@ -13,10 +13,10 @@ let totalMoves  //stores total moves used to solve a board
 let selectedCell //store index of a cell clicked
 let displayTotalMoves = document.getElementById('totalMoves')
 let toggleButton = document.getElementById('toggleButton')
-
+let difficulty = 'Medium'
 //modal1 is the modal window when player solves the sudoku correctly
 let modal1 = document.getElementById('modal1')
-let modal1CloseButton = document.getElementById('modal1Close')
+let modal1CloseButtonButton = document.getElementById('modal1CloseButton')
 //variables to store timestamps
 let startTime
 let endTime
@@ -25,7 +25,7 @@ let keypad = Array.from(document.getElementById('keypad').children)
 
 let reset = ()=>{
     //enter all the cells of sudoku into HTML
-    sudoku = generateSudoku(9)
+    sudoku = generateSudoku(9, String(difficulty))
     // sudokuObj = {
     //     array   //the sudoku n*n grid with solution
     //     n       //number of rows or column
@@ -89,7 +89,11 @@ let reset = ()=>{
 //add eventListener to keypad click
 keypad.forEach(e => {
     e.addEventListener('click', arg =>{
-        
+        let clicked = arg.target.innerHTML
+        if(selectedCell != -1){
+            cells[selectedCell].value = clicked
+            handleInput(cells[selectedCell])
+        }
     })
 })
 // functions for working with player assist
@@ -203,7 +207,13 @@ We return
 3) row and column of the cell in the equivalent sudoku puzzle
 */
 function getCellInfo (arg){
-    let target = arg.srcElement
+    // if arg is the mouse click event , we set target as the mouseclick event target
+    // if arg is the target cell only and not the click event, we se target as the target cell
+    let target
+    if(arg.srcElement == undefined)
+        target = arg
+    else
+        target = arg.srcElement
     let index = parseInt(target.id)
     let rowCol = getRowCol(index)
     let obj ={
@@ -285,13 +295,10 @@ function handleKeypadClick(){
 }
 
 //handline modal1 close button 
-modal1CloseButton.addEventListener('click', ()=>{
+modal1CloseButtonButton.addEventListener('click', ()=>{
     modal1.classList.add('hidden')
 })
 
-newGameButton.addEventListener('click', ()=>{
-    reset()
-})
 
 //function to get difference between timestamps
 function getTimeDiff(startTime, endTime){
@@ -341,3 +348,71 @@ document.addEventListener('click', arg => {
         addOrRemoveHoverOnCells(selectedCell, 1)
     }
 })
+
+// **** start of functions working with nav bar items ****
+//working with nav bar item help (shows a modal window containg how to play the game)
+let help = document.getElementById('help')
+let modal2 = document.getElementById('modal2')
+help.addEventListener('click', ()=>{
+    modal2.classList.remove('hidden')
+    let modal2CloseButton = document.getElementById('modal2CloseButton')
+    modal2CloseButton.addEventListener('click', ()=>{
+        modal2.classList.add('hidden')
+    })
+})
+
+//working with difficulty settings
+/*
+difficultyModes -> ul
+difficultyModes.children -> li
+difficultyModes.children.firstChild -> a
+ */
+
+let difficultyModes = Array.from(document.getElementById('difficultyModes').children)
+console.log(difficultyModes)
+difficultyModes.forEach(e =>{
+    e.addEventListener('click', (arg)=>{
+        //check if <li> is clicked or <a> is clicked
+        let target = (arg.target.firstChild.innerHTML == undefined)?arg.target.innerHTML:arg.target.firstChild.innerHTML
+        difficulty = target
+        confirmNewGame()
+    })
+})
+
+//new game button
+newGameButton.addEventListener('click', ()=>{
+    confirmNewGame()
+})
+
+
+//working with modal window that confirms if we want to reset the game
+let modal3 = document.getElementById('modal3')
+let yesButton  = document.getElementById('yesButton')
+let noButton = document.getElementById('noButton')
+let modal3CloseButton = document.getElementById('modal3Close')
+
+
+function confirmNewGame(){
+    //if board is solved , we don't ask for a user prompt to reset the game
+    if(score == mode*mode)
+        reset()
+    else
+    {
+        modal3.classList.remove('hidden')
+        yesButton.addEventListener('click', arg =>{
+            reset()
+            removeModal3()
+        })
+        noButton.addEventListener('click', ()=>{
+            removeModal3()
+        }) 
+        modal3CloseButton.addEventListener('click', ()=>{
+            removeModal3()
+        })
+    }
+}
+function removeModal3(){
+    modal3.classList.add('hidden')
+}
+
+// **** end of functions working with nav bar items ****

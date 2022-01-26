@@ -6,7 +6,7 @@ obj is used as the standad name throught for the sudoku object used
  */
 
 
-export default function generateSudoku (n) { 
+export default function generateSudoku (n, difficulty) { 
     const arr = new Array(n)
     for(let i = 0;i < n;i++){
         arr[i] = new Array(n)
@@ -22,11 +22,11 @@ export default function generateSudoku (n) {
     fillDiagonal(sudokuObj)
     fillOthers(sudokuObj,0,0)
     sudokuObj.puzzle = clone(sudokuObj.array)
-    puzzleGenerator(sudokuObj, "Easy")
+    console.log(difficulty)
+    puzzleGenerator(sudokuObj, difficulty)
     print(sudokuObj.puzzle, sudokuObj.n)
     print(sudokuObj.array,sudokuObj.n)
     return sudokuObj
-
 }
 
 
@@ -162,13 +162,13 @@ function puzzleGenerator (obj, difficulty) {
             k = getRandom(38, 41)
             k = getRandom(2, 3)
             break
-        case "Medium":
-            k = getRandom(45, 48)
-            break
         case "Hard":
             k = getRandom(50,55)
             break
+        default:
+            k = getRandom(45, 48)
     }
+    console.log(k)
     
     const arr = new Array(obj.n * obj.n)
     arr.fill( -1 )

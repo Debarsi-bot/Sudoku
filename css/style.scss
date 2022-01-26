@@ -66,8 +66,36 @@ body{
 }
 #modal1{
   line-height: 1.8;
-  .modal1message{
-    white-space: pre;
+}
+//sudoku help , contains general information about sudoku
+#modal2{
+  .modalContent{
+    width: 80vw;
+    .modalTextContent{
+      :nth-child(n){
+        padding: 2vh;
+      }
+      ul{
+        background-color: #f3f6fa;
+      }
+    }
+    
+  }
+}
+//new game confirmation
+#modal3{
+  .modalTextContent{
+    :nth-child(n){
+      margin: 10px;
+    }
+  }
+  #confirmationButtons{
+    margin-left: 0;
+    :nth-child(n){
+      padding: 1vw;
+      width: 60px;
+      cursor: pointer;
+    }
   }
 }
 //container
@@ -99,6 +127,7 @@ body{
         border-radius: 5px;
         padding: 10px;
         transition: background-image 0.2s;
+        cursor: pointer;
         a {
           color: white;
           text-decoration: none;
@@ -219,15 +248,15 @@ body{
       div:nth-child(n){
         margin-top: 2vh;
       }
-      #checkValid{
-        background-color: $deeper;
-        border: none;
-        color: white;
-        padding: 20%;
-        border-radius: 8%;
-        font-size: 1.5em;
-        cursor: pointer;
-      }
+      // #checkValid{
+      //   background-color: $deeper;
+      //   border: none;
+      //   color: white;
+      //   padding: 20%;
+      //   border-radius: 8%;
+      //   font-size: 1.5em;
+      //   cursor: pointer;
+      // }
       .uiText{
         color: $primaryText;
         font-size: 1.5em;
@@ -318,10 +347,40 @@ body{
     top: 15px;
   }
 }
-
-
-
 //end of nav
+
+//button effetcs
+.button1 {
+  border-color: $color1;
+  border-radius: 0;
+  color: $color1;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  -webkit-transition: color 150ms ease-in-out;
+  transition: color 150ms ease-in-out;
+}
+.button1:after {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 0;
+  height: 100%;
+  background: $color1;
+  z-index: -1;
+  -webkit-transition: width 150ms ease-in-out;
+  transition: width 150ms ease-in-out;
+}
+.button1:hover {
+  color: #fff;
+}
+.button1:hover:after {
+  width: 110%;
+}
 
 //start of media queries
 @media screen and (min-width: 1025px) {

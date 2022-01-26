@@ -68,8 +68,30 @@ body {
   line-height: 1.8;
 }
 
-#modal1 .modal1message {
-  white-space: pre;
+#modal2 .modalContent {
+  width: 80vw;
+}
+
+#modal2 .modalContent .modalTextContent :nth-child(n) {
+  padding: 2vh;
+}
+
+#modal2 .modalContent .modalTextContent ul {
+  background-color: #f3f6fa;
+}
+
+#modal3 .modalTextContent :nth-child(n) {
+  margin: 10px;
+}
+
+#modal3 #confirmationButtons {
+  margin-left: 0;
+}
+
+#modal3 #confirmationButtons :nth-child(n) {
+  padding: 1vw;
+  width: 60px;
+  cursor: pointer;
 }
 
 #container {
@@ -114,6 +136,7 @@ body {
   padding: 10px;
   -webkit-transition: background-image 0.2s;
   transition: background-image 0.2s;
+  cursor: pointer;
 }
 
 #container nav ul li a {
@@ -238,12 +261,12 @@ body {
   font-size: 2em;
 }
 
-#container #boardAndControls #sudoku input.cellHover {
-  background-color: lightblue;
-}
-
 #container #boardAndControls #sudoku input.relatedCells {
   background-color: #d1edf2;
+}
+
+#container #boardAndControls #sudoku input.cellHover {
+  background-color: lightblue;
 }
 
 #container #boardAndControls #sudoku input.wrongCell {
@@ -262,16 +285,6 @@ body {
 
 #container #boardAndControls #controls div:nth-child(n) {
   margin-top: 2vh;
-}
-
-#container #boardAndControls #controls #checkValid {
-  background-color: #401aff;
-  border: none;
-  color: white;
-  padding: 20%;
-  border-radius: 8%;
-  font-size: 1.5em;
-  cursor: pointer;
 }
 
 #container #boardAndControls #controls .uiText {
@@ -370,6 +383,41 @@ body {
   100% {
     top: 15px;
   }
+}
+
+.button1 {
+  border-color: #5533ff;
+  border-radius: 0;
+  color: #5533ff;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  -webkit-transition: color 150ms ease-in-out;
+  transition: color 150ms ease-in-out;
+}
+
+.button1:after {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 0;
+  height: 100%;
+  background: #5533ff;
+  z-index: -1;
+  -webkit-transition: width 150ms ease-in-out;
+  transition: width 150ms ease-in-out;
+}
+
+.button1:hover {
+  color: #fff;
+}
+
+.button1:hover:after {
+  width: 110%;
 }
 
 @media screen and (min-width: 1025px) {

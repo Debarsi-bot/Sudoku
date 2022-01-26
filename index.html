@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Press+Start+2P&family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- modal to show solved message -->
   <div id = "modal1" class="modal hidden">
     <div class = "modalContent">
       <div class = "modalTextContent">
@@ -18,24 +19,53 @@
           <p class = "modal1message" id ="messageTotalMoves"></p>
           <p class = "modal1message" id ="messageTimeTaken">T</p>
       </div>
-      <span class="closeButton" id ="modal1Close">&times;</span>
+      <span class="closeButton" id ="modal1CloseButton">&times;</span>
     </div>
 
-    </div>
   </div>
+<!-- modal to confirm reset game -->
+<div id ="modal2" class="modal hidden">
+  <div class ="modalContent">
+    <div class = "modalTextContent">
+        <h1>How to play Sudoku</h1>
+        <p>The goal of Sudoku is to fill in a 9×9 grid with digits so that each column, row, and 3×3 section contain the numbers between 1 to 9. At the beginning of the game, the 9×9 grid will have some of the squares filled in. Your job is to use logic to fill in the missing digits and complete the grid. Don’t forget, a move is incorrect if:</p>
+        <ul>
+          <li>Any row contains more than one of the same number from 1 to 9</li>
+          <li>Any column contains more than one of the same number from 1 to 9</li>
+          <li>Any 3×3 grid contains more than one of the same number from 1 to 9</li>
+        </ul>
+    </div>
+    <span class="closeButton" id ="modal2CloseButton">&times;</span>
+  </div>
+</div>
+
+<div id = "modal3" class="modal hidden">
+  <div class ="modalContent">
+    <div class = "modalTextContent">
+        <h1>All progress will be lost</h1>
+        <p>Do you want to start a new game ? </p>
+        <div id="confirmationButtons">
+          <button id="yesButton" class="button1">Yes</button>
+          <button id="noButton" class="button1">No</button>
+        </div>
+    </div>
+    <span class="closeButton" id ="modal3Close">&times;</span>
+  </div>
+</div>
+
   <div id="container">
     <nav>
       <ul>
         <li id="newGameButton"><a href="#0">New Game</a></li>
         <li>
           <a href="#0">Difficulty</a>
-          <ul>
+          <ul id = "difficultyModes">
             <li><a href="#0">Easy</a></li>
             <li><a href="#0">Medium</a></li>
             <li><a href="#0">Hard</a></li>
           </ul>
         </li>
-        <li><a href="#0">Help</a></li>
+        <li id="help"><a href="#0">Help</a></li>
       </ul>
     </nav>
       
@@ -59,7 +89,7 @@
       </div>
       
       <div id="controls">
-        <button id="checkValid" class="hoverEffect">Check</button>
+        <!-- <button id="checkValid" class="hoverEffect">Check</button> -->
         <div id = "toggleButtonContainer">
           <p id ="toggleMessage" class = "uiText">Assist</p>
           <label class="switch">
